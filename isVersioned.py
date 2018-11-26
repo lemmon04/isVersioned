@@ -1,9 +1,9 @@
 import arcpy
 from arcpy import env
-schemas=["ASSETMAN","CARTO","ENV","GEODESY","GIS","HYDRAULICS","IMG","MAINT","MultiModal","NDOT","RM","ROWE","RWD","RWS","SHPO","STANMAN","TRAFINFO","TRAFSAFETY","WILDLIFE"]
+schemas=["ASSETMAN","CARTO","ENV"]
             
 for x in schemas:
-    env.workspace= r'Database Connections\DEV gissqldev.sde\DEV.DBO.' + x
+    env.workspace= r'Database Connections' + x
     fcList=arcpy.ListFeatureClasses()
     for fc in fcList:
         try:
@@ -32,7 +32,7 @@ for x in schemas:
             print "IOError Found" + fd
             continue
 
-env.workspace="Database Connections\DEV gissqldev.sde"
+env.workspace="Database Connections"
 fcList=arcpy.ListFeatureClasses()
 for fc in fcList:
     try:
